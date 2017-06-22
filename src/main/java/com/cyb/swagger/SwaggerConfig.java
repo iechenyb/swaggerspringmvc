@@ -6,13 +6,14 @@ import org.springframework.context.annotation.Configuration;
 
 import com.mangofactory.swagger.configuration.SpringSwaggerConfig;
 import com.mangofactory.swagger.models.dto.ApiInfo;
+import com.mangofactory.swagger.models.dto.builder.ApiInfoBuilder;
 import com.mangofactory.swagger.plugin.EnableSwagger;
 import com.mangofactory.swagger.plugin.SwaggerSpringMvcPlugin;
-
+//https://www.zhihu.com/question/28119576
 @Configuration
 @EnableSwagger
 public class SwaggerConfig {
-
+    private boolean isDev = true;
     private SpringSwaggerConfig springSwaggerConfig;
 
     /**
@@ -32,12 +33,21 @@ public class SwaggerConfig {
     @Bean
     public SwaggerSpringMvcPlugin customImplementation()
     {
+    	String pattern = (isDev==true?".*?":"");
         return new SwaggerSpringMvcPlugin(this.springSwaggerConfig)
                 .apiInfo(apiInfo())
-                .includePatterns(".*?");
+                .includePatterns(pattern);//.*?
+    }
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("Web工程集成Swagger2构建RESTful APIs")
+                .description("api根地址：http://www.iechenyb.website/swagger/index.html")
+                .termsOfServiceUrl("https://www.iechenyb.info/")
+                .contact("iechenyb")
+                .build();
     }
 
-    private ApiInfo apiInfo()
+    private ApiInfo apiInfo1()
     {
         ApiInfo apiInfo = new ApiInfo(
                 "My Apps API Title",
