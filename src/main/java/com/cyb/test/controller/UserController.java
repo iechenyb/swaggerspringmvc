@@ -1,19 +1,16 @@
 package com.cyb.test.controller;
 
-import java.io.PrintWriter;
-
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cyb.test.bean.Person;
 import com.mangofactory.swagger.plugin.EnableSwagger;
 import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiImplicitParam;
-import com.wordnik.swagger.annotations.ApiImplicitParams;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import com.wordnik.swagger.annotations.ApiResponse;
@@ -60,5 +57,11 @@ public class UserController {
         System.out.println("delete"+id);
         return "/hello";
     }
-     
+    @ResponseBody
+    @ApiOperation(value="json参数传递", notes="json参数传递note")  
+    //@ApiImplicitParam(name = "user", value = "用户详细实体user", required = true, dataType = "User")  
+    @RequestMapping(value="/addUser", method=RequestMethod.POST)  
+    public String postUser(@RequestBody @ApiParam(value = "唯一id") Person user) {  
+        return user.getName();  
+    } 
 }

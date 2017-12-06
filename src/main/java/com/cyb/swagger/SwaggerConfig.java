@@ -16,20 +16,13 @@ public class SwaggerConfig {
     private boolean isDev = true;
     private SpringSwaggerConfig springSwaggerConfig;
 
-    /**
-     * Required to autowire SpringSwaggerConfig
-     */
+  
     @Autowired
     public void setSpringSwaggerConfig(SpringSwaggerConfig springSwaggerConfig)
     {
         this.springSwaggerConfig = springSwaggerConfig;
     }
 
-    /**
-     * Every SwaggerSpringMvcPlugin bean is picked up by the swagger-mvc
-     * framework - allowing for multiple swagger groups i.e. same code base
-     * multiple swagger resource listings.
-     */
     @Bean
     public SwaggerSpringMvcPlugin customImplementation()
     {
@@ -58,4 +51,13 @@ public class SwaggerConfig {
                 "My Apps API License URL");
         return apiInfo;
     }
+
+	public boolean isDev() {
+		return isDev;
+	}
+
+	public void setDev(boolean isDev) {
+		this.isDev = isDev;
+	}
+    
 }

@@ -1,5 +1,8 @@
 package com.cyb.test.bean;
 
+import com.wordnik.swagger.annotations.ApiModel;
+import com.wordnik.swagger.annotations.ApiModelProperty;
+@ApiModel(value = "用户实体类")
 public class Person {
 	public String getName() {
         return name;
@@ -13,6 +16,8 @@ public class Person {
     public void setAge(int age) {
         this.age = age;
     }
+    @ApiModelProperty(value = "登录用户名")
     private String name;
+    @ApiModelProperty(value = "年龄")
     private int age;
 }

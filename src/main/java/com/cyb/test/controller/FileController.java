@@ -30,7 +30,7 @@ public class FileController {
         return file.getContentType()+","+fileName;  
     }
     
-    @ResponseBody
+    @ResponseBody	
     @RequestMapping(value = "/upload2",method=RequestMethod.POST) 
     @ApiOperation(value = "文件上传方法2",
     httpMethod = "POST", 
