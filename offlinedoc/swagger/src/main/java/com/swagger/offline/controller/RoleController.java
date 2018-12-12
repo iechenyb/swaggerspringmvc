@@ -2,9 +2,10 @@ package com.swagger.offline.controller;
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -30,7 +31,7 @@ consumes = MediaType.APPLICATION_JSON_VALUE,
 public class RoleController {
 
     @ApiOperation(value = "/getRole2", notes = "根据姓名查询用户信息 ")
-    @RequestMapping(value = "getRole", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "getRole")
     @ResponseBody
     public User getRole(@RequestParam("name") String name) {
     	User user = new User();
@@ -43,10 +44,9 @@ public class RoleController {
     }
 
     @ApiOperation(value = "/addRole2", notes = "添加一个用户")
-    @RequestMapping(value = "addRole", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "addRole")
     @ResponseBody
     public User addRole(@RequestBody User user) {
-
         return user;
     }
 }

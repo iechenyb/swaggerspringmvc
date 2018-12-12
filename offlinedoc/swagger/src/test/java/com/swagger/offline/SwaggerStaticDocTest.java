@@ -56,7 +56,7 @@ public class SwaggerStaticDocTest {
     @Autowired
     public MockMvc mockMvc;
     //输入目录
-    static String docUrl = "http://192.168.108.224:8089/v2/api-docs";
+    static String docUrl = "http://localhost:8090/demo/v2/api-docs";
     static String baseDir = System.getProperty("user.dir");
     String type="remote";//remote native 远端
     @After
@@ -87,6 +87,11 @@ public class SwaggerStaticDocTest {
                 .intoFolder(outputDir);// 输出
     }
 
+    @Test
+    public void downLoad(){
+    	
+    }
+    
     @Test
     public void TestApi() throws Exception {
     	System.err.println("文档生成目录"+baseDir+"/"+outputDir);
