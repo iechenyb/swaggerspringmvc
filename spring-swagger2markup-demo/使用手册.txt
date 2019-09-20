@@ -1,0 +1,18 @@
+一、下载项目
+下载https://github.com/Swagger2Markup/spring-swagger2markup-demo下的项目，保存，注意文件路径不要有中文。我们称这个项目为A项目。
+
+没错这个项目就是专门根据json解析生成文档的。
+
+二、修改配置
+解压项目，并且用IDEA打开。
+
+启动要生成文档的项目，前提这个项目集成了swagger2，浏览 http://localhost:8080/swagger-ui.html 
+
+输入:http://localhost:8080/v2/api-docs 保存页面的json数据，并把这个json文件保存在一个路径下
+
+找到A项目的pom.xml修改：swagger.input>api-docs.json</swagger.input> 的值，就是你的json文件路径，我这里是直接把这个json文件放到了A项目中，所以这样写。
+${project.build.directory}/swagger  project.build.directory 指的是target目录
+
+注意 <swagger.input>${swagger.output.dir}/swagger-1.json</swagger.input>
+三、编译
+执行 mvn test 命令，在\target\asciidoc 找到生成的文档
