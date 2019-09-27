@@ -1,0 +1,55 @@
+== Definitions
+=== Category
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|id||false|integer (int64)|
+|name||false|string|
+|===
+
+=== Order
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|complete||false|boolean|
+|id||false|integer (int64)|
+|petId||false|integer (int64)|
+|quantity||false|integer (int32)|
+|shipDate||false|string (date-time)|
+|status|Order Status|false|enum (placed, approved, delivered)|
+|===
+
+=== Pet
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|category||false|<<Category>>|
+|id||false|integer (int64)|
+|name||false|string|
+|photoUrls||false|string array|
+|status|pet status in the store|false|enum (available, pending, sold)|
+|tags||false|<<Tag>> array|
+|===
+
+=== Tag
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|id||false|integer (int64)|
+|name||false|string|
+|===
+
+=== User
+[options="header"]
+|===
+|Name|Description|Required|Schema|Default
+|email||false|string|
+|firstName||false|string|
+|id||false|integer (int64)|
+|lastName||false|string|
+|password||false|string|
+|phone||false|string|
+|userStatus|User Status|false|integer (int32)|
+|username||false|string|
+|===
+

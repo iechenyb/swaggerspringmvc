@@ -1,0 +1,6 @@
+1 默认情况下 target目录是没有的
+2 但是如果生成一个接口文档，需要将v1/docs里边的json数据导出到swagger.json文件里
+3 然后再target目录下创建asciidoc目录，然后将swagger.json放到asciidoc目录里边
+4 执行mvn install 
+5 查看asciidoc目录，如当前目录下的asciidoc为copy过来的生成的文件夹目录结构，从无到有，只有一个json文件。
+6 注意  不需要用ide启动工程，只需要maven就行了。

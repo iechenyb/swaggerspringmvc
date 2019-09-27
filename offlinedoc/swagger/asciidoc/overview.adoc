@@ -1,0 +1,27 @@
+= Swagger Petstore
+
+== Overview
+Petstore API Description
+
+=== Version information
+Version: 1.0.0
+
+=== Contact information
+Contact: TestName
+Contact Email: test@test.de
+
+=== License information
+License: Apache 2.0
+License URL: http://www.apache.org/licenses/LICENSE-2.0.html
+
+=== URI scheme
+Host: localhost:8080
+BasePath: /
+
+=== Tags
+
+* Pets: Operations about pets
+* Stores: Operations about store
+* Users: Operations about user
+
+
